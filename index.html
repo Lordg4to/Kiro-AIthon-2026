@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Avanza conmigo: un compañero de estudio para becarias que avanzan lento o dejaron de avanzar. No sustituye la ayuda profesional.">
+  <title>Avanza conmigo · Compañera de estudio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <!-- ===== Encabezado ===== -->
+  <header class="app-header">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">🌱</span>
+      <div>
+        <h1 class="brand-name">Avanza conmigo</h1>
+        <p class="brand-tag">Tu compañera de estudio. Paso a paso, sin prisa.</p>
+      </div>
+    </div>
+
+    <nav class="tabs" role="tablist" aria-label="Secciones">
+      <button class="tab is-active" role="tab" aria-selected="true" data-tab="inicio">
+        <span aria-hidden="true">🏠</span> Inicio
+      </button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="animo">
+        <span aria-hidden="true">🌤️</span> Mi ánimo
+      </button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="plan">
+        <span aria-hidden="true">🗺️</span> Mi plan
+      </button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="progreso">
+        <span aria-hidden="true">📈</span> Mi progreso
+      </button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="diario">
+        <span aria-hidden="true">📓</span> Diario
+      </button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="recursos">
+        <span aria-hidden="true">🍃</span> Recursos
+      </button>
+    </nav>
+  </header>
+
+  <main id="contenido" class="app-main">
+
+    <!-- ===== Inicio ===== -->
+    <section id="panel-inicio" class="panel is-active" role="tabpanel">
+      <div class="hero">
+        <p class="hero-greeting" id="saludo">Hola</p>
+        <h2 class="hero-title">El avance lento también es avance</h2>
+        <p class="hero-sub">Si hoy solo puedes dar un paso pequeño, ese paso cuenta. Empecemos por saber cómo estás.</p>
+      </div>
+
+      <article class="card card-check">
+        <h3 class="card-title">¿Cómo te sientes ahora?</h3>
+        <p class="card-text">Tu plan de estudio se ajusta a esto. No hay respuesta incorrecta.</p>
+        <div class="mood-quick" role="group" aria-label="Estado de ánimo rápido">
+          <button class="mood-chip" data-mood="feliz" aria-label="Me siento con energía">⚡</button>
+          <button class="mood-chip" data-mood="tranquila" aria-label="Me siento tranquila">🙂</button>
+          <button class="mood-chip" data-mood="cansada" aria-label="Me siento cansada">😮‍💨</button>
+          <button class="mood-chip" data-mood="triste" aria-label="Me siento desanimada">🌧️</button>
+          <button class="mood-chip" data-mood="ansiosa" aria-label="Me siento ansiosa">🌊</button>
+        </div>
+        <p class="mood-response" id="respuesta-animo" aria-live="polite"></p>
+        <button class="btn btn-primary" id="btn-ver-plan" hidden>Ver mi plan personalizado →</button>
+      </article>
+
+      <div class="card-grid">
+        <article class="card">
+          <h3 class="card-title">Tu semana</h3>
+          <div class="streak">
+            <span class="streak-num" id="streak-num">0</span>
+            <span class="streak-label">días con un mínimo de estudio</span>
+          </div>
+          <div class="streak-dots" id="streak-dots" aria-hidden="true"></div>
+          <p class="muted small" id="streak-msg">El hábito se construye con días pequeños, no con días perfectos.</p>
+        </article>
+
+        <article class="card">
+          <h3 class="card-title">Una verdad para hoy</h3>
+          <blockquote class="quote" id="frase-dia">"El abandono no empieza el día que dejas de ir, empieza el día que dejas de creer que puedes. Aquí volvemos a creer, despacio."</blockquote>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== Mi ánimo ===== -->
+    <section id="panel-animo" class="panel" role="tabpanel" hidden>
+      <h2 class="section-title">¿Cómo te sientes hoy?</h2>
+      <p class="section-sub">Reconocer lo que sientes es cuidarte. Y cuidarte es parte de sostener tu beca. Esto se guarda solo en tu dispositivo.</p>
+
+      <article class="card">
+        <h3 class="card-title">Registra tu ánimo</h3>
+        <div class="mood-picker" role="radiogroup" aria-label="Elige tu estado de ánimo">
+          <button class="mood-option" role="radio" aria-checked="false" data-mood="feliz">
+            <span class="mood-emoji" aria-hidden="true">⚡</span>
+            <span class="mood-label">Con energía</span>
+          </button>
+          <button class="mood-option" role="radio" aria-checked="false" data-mood="tranquila">
+            <span class="mood-emoji" aria-hidden="true">🙂</span>
+            <span class="mood-label">Tranquila</span>
+          </button>
+          <button class="mood-option" role="radio" aria-checked="false" data-mood="cansada">
+            <span class="mood-emoji" aria-hidden="true">😮‍💨</span>
+            <span class="mood-label">Cansada</span>
+          </button>
+          <button class="mood-option" role="radio" aria-checked="false" data-mood="triste">
+            <span class="mood-emoji" aria-hidden="true">🌧️</span>
+            <span class="mood-label">Desanimada</span>
+          </button>
+          <button class="mood-option" role="radio" aria-checked="false" data-mood="ansiosa">
+            <span class="mood-emoji" aria-hidden="true">🌊</span>
+            <span class="mood-label">Ansiosa</span>
+          </button>
+        </div>
+
+        <label class="field-label" for="nota-animo">¿Quieres contar por qué? (opcional)</label>
+        <textarea class="field" id="nota-animo" rows="3" placeholder="Lo que sientes, sin filtros…"></textarea>
+
+        <button class="btn btn-primary" id="btn-guardar-animo">Guardar y ver mi plan</button>
+        <p class="mood-response" id="respuesta-animo-guardado" aria-live="polite"></p>
+      </article>
+
+      <article class="card">
+        <h3 class="card-title">Tu historial de ánimo</h3>
+        <div id="historial-animo" class="mood-history">
+          <p class="muted">Aún no hay registros. Tu primer paso se verá aquí.</p>
+        </div>
+        <button class="btn btn-ghost" id="btn-borrar-animo">Borrar historial</button>
+      </article>
+    </section>
+
+    <!-- ===== Mi plan ===== -->
+    <section id="panel-plan" class="panel" role="tabpanel" hidden>
+      <h2 class="section-title">Tu plan de estudio personalizado</h2>
+      <p class="section-sub">Se construye a partir de cómo te sientes. Si tu ánimo cambia, tu plan también.</p>
+
+      <article class="card card-plan">
+        <div id="plan-vacio">
+          <p class="card-text">Aún no tenemos tu ánimo de hoy.</p>
+          <button class="btn btn-primary" id="btn-ir-animo">Empecemos por cómo te sientes</button>
+        </div>
+
+        <div id="plan-contenido" hidden>
+          <div class="plan-head">
+            <span class="plan-emoji" id="plan-emoji" aria-hidden="true"></span>
+            <div>
+              <h3 class="card-title" id="plan-nombre">Plan</h3>
+              <p class="plan-baseline" id="plan-baseline"></p>
+            </div>
+          </div>
+
+          <p class="plan-mensaje" id="plan-mensaje"></p>
+
+          <div class="time-selector">
+            <p class="time-label">¿Cuánto tiempo tienes hoy?</p>
+            <div class="time-pills" role="group" aria-label="Tiempo disponible">
+              <button class="time-pill is-active" data-tiempo="flexible">No estoy segura</button>
+              <button class="time-pill" data-tiempo="rato">Solo un rato</button>
+              <button class="time-pill" data-tiempo="media">Media hora</button>
+              <button class="time-pill" data-tiempo="hora">Una hora</button>
+              <button class="time-pill" data-tiempo="par">Un par de horas</button>
+            </div>
+            <p class="plan-tiempo-note" id="plan-tiempo-note" aria-live="polite"></p>
+          </div>
+
+          <div class="plan-config">
+            <div class="config-pill"><span class="config-label">Sesiones de</span> <strong id="plan-foco">25</strong> min</div>
+            <div class="config-pill"><span class="config-label">Pausas de</span> <strong id="plan-descanso">5</strong> min</div>
+            <div class="config-pill"><span class="config-label">Meta hoy</span> <strong id="plan-bloques">2</strong> bloque(s)</div>
+          </div>
+
+          <h4 class="plan-subtitle">Tu primer paso (empieza por aquí)</h4>
+          <div class="primer-paso" id="plan-primer-paso"></div>
+
+          <h4 class="plan-subtitle">Tareas sugeridas</h4>
+          <ul class="plan-tareas" id="plan-tareas"></ul>
+
+          <div class="plan-actions">
+            <button class="btn btn-primary" id="btn-empezar-plan">Empezar la sesión ⏳</button>
+            <button class="btn btn-ghost" id="btn-otro-animo">Sentía otra cosa</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Temporizador integrado al plan -->
+      <article class="card card-timer">
+        <h3 class="card-title">Temporizador</h3>
+        <div class="timer-mode" role="group" aria-label="Modo">
+          <button class="mode-btn is-active" data-mode="foco">Concentración</button>
+          <button class="mode-btn" data-mode="descanso">Descanso</button>
+        </div>
+        <div class="timer-display" aria-live="polite" aria-atomic="true">
+          <span id="tiempo">25:00</span>
+        </div>
+        <p class="timer-msg" id="timer-msg" aria-live="polite">Elige "Empezar la sesión" en tu plan, o ajusta el tiempo aquí.</p>
+        <div class="timer-controls">
+          <button class="btn btn-primary" id="btn-iniciar">Empezar</button>
+          <button class="btn btn-ghost" id="btn-pausar" disabled>Pausar</button>
+          <button class="btn btn-ghost" id="btn-reiniciar">Reiniciar</button>
+        </div>
+        <p class="muted small">Bloques completados hoy: <strong id="sesiones-hoy">0</strong></p>
+      </article>
+    </section>
+
+    <!-- ===== Mi progreso ===== -->
+    <section id="panel-progreso" class="panel" role="tabpanel" hidden>
+      <h2 class="section-title">Tu progreso</h2>
+      <p class="section-sub">No medimos cuánto, medimos que no soltaste el hilo. Y aquí se ve que no lo has soltado.</p>
+
+      <div class="card-grid">
+        <article class="card stat">
+          <span class="stat-num" id="stat-sesiones">0</span>
+          <span class="stat-label">sesiones esta semana</span>
+        </article>
+        <article class="card stat">
+          <span class="stat-num" id="stat-dias">0</span>
+          <span class="stat-label">días estudiados esta semana</span>
+        </article>
+        <article class="card stat">
+          <span class="stat-num" id="stat-minutos">0</span>
+          <span class="stat-label">minutos acumulados</span>
+        </article>
+      </div>
+
+      <article class="card">
+        <h3 class="card-title">Tus últimos 14 días</h3>
+        <div class="heatmap" id="heatmap" aria-hidden="true"></div>
+        <p class="muted small" id="progreso-msg">Cada cuadrito con color es un día que no soltaste el hilo. Eso es lo que sostiene una beca.</p>
+      </article>
+
+      <article class="card card-important">
+        <h3 class="card-title">Una nota sobre el avance lento</h3>
+        <p class="card-text">Avanzar lento no es lo mismo que abandonar. Abandonar es soltar el hilo por completo. Mientras haya un día, una sesión, una página, sigues en carrera. Tu beca se sostiene con continuidad, no con perfección.</p>
+      </article>
+    </section>
+
+    <!-- ===== Diario ===== -->
+    <section id="panel-diario" class="panel" role="tabpanel" hidden>
+      <h2 class="section-title">Mi diario</h2>
+      <p class="section-sub">Escribir ayuda a poner en palabras lo que pesa. Sin toneladas, sin filtros.</p>
+
+      <article class="card">
+        <h3 class="card-title">Nueva entrada</h3>
+        <label class="field-label" for="diario-titulo">Título (opcional)</label>
+        <input type="text" class="field" id="diario-titulo" placeholder="Un título breve…">
+        <label class="field-label" for="diario-texto">Lo que quiero escribir</label>
+        <textarea class="field" id="diario-texto" rows="5" placeholder="Hoy sentí que…"></textarea>
+        <p class="prompt-tip">¿Necesitas una idea? <button class="link-btn" id="btn-prompt">Dame una pregunta para empezar</button></p>
+        <button class="btn btn-primary" id="btn-guardar-diario">Guardar entrada</button>
+      </article>
+
+      <article class="card">
+        <h3 class="card-title">Entradas guardadas</h3>
+        <div id="lista-diario" class="diario-list">
+          <p class="muted">Aún no hay entradas. Tu primera página te espera.</p>
+        </div>
+      </article>
+    </section>
+
+    <!-- ===== Recursos ===== -->
+    <section id="panel-recursos" class="panel" role="tabpanel" hidden>
+      <h2 class="section-title">Recursos y consejos</h2>
+      <p class="section-sub">Ideas suaves para sostener tu beca sin romperte en el camino.</p>
+
+      <article class="card">
+        <h3 class="card-title">Cuando cuesta arrancar</h3>
+        <ul class="tips">
+          <li>Reduce la meta: "hoy solo leo una página" ya es una victoria. La fricción está en empezar, no en durar.</li>
+          <li>Estudia 5 minutos antes de decidir si sigues. Casi siempre, ya empezado, se sigue.</li>
+          <li>Si te bloquea una materia, empieza por la que más te agrada para entrar en movimiento.</li>
+          <li>No te compares con quien avanza rápido. Tu carrera es contra el abandono, no contra nadie.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3 class="card-title">Para sostener la beca</h3>
+        <ul class="tips">
+          <li>La constancia vence a la intensidad. Un poco cada día suma más que mucho de golpe.</li>
+          <li>Lleva un registro simple: ayuda a ver que sí avanzas aunque se sienta lento.</li>
+          <li>Si vas atrasada, habla con tu coordinador antes de que se vuelva urgente. Pedir tiempo es pedir ayuda.</li>
+          <li>Cuida lo básico: dormir, comer, descansar. Una beca cansada se sostiene con dificultad.</li>
+        </ul>
+      </article>
+
+      <article class="card card-important">
+        <h3 class="card-title">Si necesitas más apoyo</h3>
+        <p class="card-text">Esta app es una compañera, no un tratamiento. Si lo que sientes te abruma o no mejora, hablar con un profesional es el acto más valiente que puedes hacer por tu beca y por ti.</p>
+        <ul class="tips">
+          <li>Muchas instituciones tienen orientación psicológica gratuita para becarias. Infórmate.</li>
+          <li>Existen líneas de apoyo emocional gratuitas y confidenciales en casi todos los países.</li>
+          <li>No necesitas estar en crisis para pedir ayuda. Pedir apoyo a tiempo protege lo que has construido.</li>
+        </ul>
+      </article>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p>🌱 Avanza conmigo · Tus datos se guardan solo en este dispositivo.</p>
+    <p class="muted small">Esta app es una herramienta de apoyo y compañía. No sustituye la atención de un profesional de la salud.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
